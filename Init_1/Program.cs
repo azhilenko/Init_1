@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NUnit.Framework;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,7 @@ namespace Init_1
 
     class Week
     {
-        string[] days = { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
+        string[] days = { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday","MondOktober" };
         public IEnumerator<string> GetEnumerator() { return new WeekEnumerator(days); }
 
         class WeekEnumerator : IEnumerator<string>
@@ -41,32 +42,62 @@ namespace Init_1
             public void Dispose() { }
         }
     }
+
+
+
+
+
+
+
+
+
+
+
+
+    public static class Kata
+    {
+        public static int GetVowelCount(string str)
+        {
+            char[] vowels = new[] { 'a', 'e', 'i', 'o', 'u' };
+            return str.ToCharArray().Where(c => vowels.Contains(c)).Count();
+        }
+    }
     class Program
     {
         static void Main(string[] args)
         {
-            //var x =State.active.GetHashCode();
-            int[] numbers = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
-            Week week = new Week();
-            foreach(var day in week)
-            {
-                Console.WriteLine(day);
-            }
+            Assert.AreEqual(5, Kata.GetVowelCount("abracadabra"), "Nope!");
+            var br = 0;
+
+
+
+
+        //var x =State.active.GetHashCode();
+        int[] numbers = { 10, 11, 12, 13, 14, 15, 16, 17, 18, 19 };
             
 
+        //Week week = new Week();
+
+        //for (int i = 0; i < numbers.Length;i++)
+        //{
+        //    if(numbers[i]%2==0)
+        //    Console.WriteLine(numbers[i]);
+        //}
+        //foreach(var day in week)
+        //{
+        //    Console.WriteLine(day);
+        //}
 
 
+        //if (numbers.Length != 0 && numbers != null)
+        //foreach (var x in numbers)
+        //{
+        //    Console.WriteLine(x);
+        //}
+        //else
+        //    throw new InvalidOperationException();
 
-            if (numbers.Length != 0 && numbers != null)
-            foreach (var x in numbers)
-            {
-                Console.WriteLine(x);
-            }
-            else
-                throw new InvalidOperationException();
-            var br =0;
-            Console.ReadLine();
-        }
+    }
 
         enum State
         {
