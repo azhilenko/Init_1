@@ -66,38 +66,57 @@ namespace Init_1
     {
         static void Main(string[] args)
         {
-            Assert.AreEqual(5, Kata.GetVowelCount("abracadabra"), "Nope!");
-            var br = 0;
+            //Assert.AreEqual(5, Kata.GetVowelCount("abracadabra"), "Nope!");
+            //var br = 0;
+            //Sum(Console.ReadLine());
+            while(true)
+            FibNumber(int.Parse(Console.ReadLine()));
+
+            //var x =State.active.GetHashCode();
+            //int[] numbers = { 10, 11, 12, 13, 14, 15, 16, 17, 18, 19 };
 
 
+            //Week week = new Week();
+
+            //for (int i = 0; i < numbers.Length;i++)
+            //{
+            //    if(numbers[i]%2==0)
+            //    Console.WriteLine(numbers[i]);
+            //}
+            //foreach(var day in week)
+            //{
+            //    Console.WriteLine(day);
+            //}
 
 
-        //var x =State.active.GetHashCode();
-        int[] numbers = { 10, 11, 12, 13, 14, 15, 16, 17, 18, 19 };
-            
+            //if (numbers.Length != 0 && numbers != null)
+            //foreach (var x in numbers)
+            //{
+            //    Console.WriteLine(x);
+            //}
+            //else
+            //    throw new InvalidOperationException();
+            Console.ReadLine();
+        }
+        static public void FibNumber(int number)
+        {
+            int res = 0;
+            List<ulong> FibList = new List<ulong>{ 0, 1 } ;
 
-        //Week week = new Week();
-
-        //for (int i = 0; i < numbers.Length;i++)
-        //{
-        //    if(numbers[i]%2==0)
-        //    Console.WriteLine(numbers[i]);
-        //}
-        //foreach(var day in week)
-        //{
-        //    Console.WriteLine(day);
-        //}
-
-
-        //if (numbers.Length != 0 && numbers != null)
-        //foreach (var x in numbers)
-        //{
-        //    Console.WriteLine(x);
-        //}
-        //else
-        //    throw new InvalidOperationException();
-
-    }
+            for(var i=2;i<=number;i++)
+                FibList.Add(FibList[i - 2] + FibList[i - 1]);
+            Console.WriteLine(FibList[number]);
+        }
+        static public void Sum(string str)
+        {
+            int res = 0;
+            var temp = str.Split(' ');
+            for (var i = 0; i < temp.Length; i++)
+            {
+                res += Convert.ToInt32(temp[i]);
+            }
+            Console.WriteLine(res);
+        }
 
         enum State
         {
